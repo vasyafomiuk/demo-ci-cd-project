@@ -10,12 +10,12 @@ jobs:
         - image: circleci/node:13.8.0
       steps:
         - run: echo "Hello"
-      environment:
-        NAME: Vasya  
 
   print_world:  
       docker:
         - image: circleci/node:13.8.0
+      environment:
+          NAME: Vasya    
       steps:
         - run: echo "World"
         - run: echo $NAME
