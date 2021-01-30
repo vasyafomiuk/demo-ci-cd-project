@@ -11,7 +11,7 @@ jobs:
     steps:
       - run: echo "Hello world" > output.txt
       - persist_to_workspace:
-          root: /tmp/demo-ci-cd-project
+          root: /tmp/dir
           paths:
             - build/*
 
@@ -20,7 +20,7 @@ jobs:
         - image: circleci/node:13.8.0
       steps:
         - attach_workspace:
-            at: /tmp/demo-ci-cd-project
+            at: /tmp/dir
         - run: cat output.txt
 
 # Orchestrate or schedule a set of jobs
