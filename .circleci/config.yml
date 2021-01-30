@@ -17,12 +17,12 @@ jobs:
             - output.txt
 
   print_output_file:
-      docker: 
-        - image: circleci/node:13.8.0
-      steps:
-        - attach_workspace:
-            at: workspace
-        - run: cat workspace/output.txt
+    docker: 
+      - image: circleci/node:13.8.0
+    steps:
+      - attach_workspace:
+          at: workspace
+      - run: cat workspace/output.txt
 
 # Orchestrate or schedule a set of jobs
 workflows:
