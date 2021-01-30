@@ -9,19 +9,20 @@ jobs:
     docker: 
       - image: circleci/node:13.8.0
     steps:
-      - run: echo "Hello world" > output.txt
+      - run: mkdir workspace
+      - run: echo "Hello world" > workspace/output.txt
       - persist_to_workspace:
-          root: /tmp/dir
+          root: workspace
           paths:
-            - build/*
+            - output.txt
 
   print_output_file:
       docker: 
         - image: circleci/node:13.8.0
       steps:
         - attach_workspace:
-            at: /tmp/dir
-        - run: cat output.txt
+            at: workspace
+        - run: cat workspace/output.txt
 
 # Orchestrate or schedule a set of jobs
 workflows:
