@@ -36,6 +36,16 @@ jobs:
       steps:
         - print_pipeline_id
 
+  print_error:
+      docker:
+        - image:  circleci/node:13.8.0
+      steps:
+        - run: 
+            command: return 1
+        - run: 
+            command: echo "On fail was executed"
+            when: on_fail
+
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
