@@ -34,8 +34,7 @@ jobs:
       docker:
         - image: circleci/node:13.8.0
       steps:
-        - print_pipeline_id:
-          - to: "command executed"  
+        - print_pipeline_id
 
 # Orchestrate or schedule a set of jobs
 workflows:
@@ -48,3 +47,4 @@ workflows:
       - print_output_file:
           requires:
                 - save_hello_world_output
+      - print_command          
